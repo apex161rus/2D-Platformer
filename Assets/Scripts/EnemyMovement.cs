@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
 
             transform.position = Vector2.MoveTowards(transform.position, target.position, 1.5f * Time.deltaTime);
 
-            if (transform.position == target.position)
+            if (Vector2.Distance(transform.position, target.position) < 0.2f)
             {
                 _cerentePoint++;
 
