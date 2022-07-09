@@ -17,12 +17,12 @@ public class CoinSpawner : MonoBehaviour
 
     private IEnumerator CreateEnemies()
     {
-        var waitForSeconds = new WaitForSeconds(2f);
+        //var waitForSeconds = new WaitForSeconds(0.30f);
 
         foreach (var coin in _points.Spawn)
         {
-            yield return waitForSeconds;
-            Instantiate(_coin, coin.transform.position, Quaternion.identity);
+            yield return Instantiate(_coin, coin.transform.position, Quaternion.identity);
+
         }
     }
 }

@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _number: 1
-  _gameObject: {fileID: 1589629322195948460}
+  _object: {fileID: 1589629322195948460}
 --- !u!58 &3777254361318210886
 CircleCollider2D:
   m_ObjectHideFlags: 0
