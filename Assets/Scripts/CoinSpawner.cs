@@ -1,6 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+[RequireComponent(typeof(SpawnPoints))]
 
 public class CoinSpawner : MonoBehaviour
 {
@@ -18,10 +19,10 @@ public class CoinSpawner : MonoBehaviour
     {
         var waitForSeconds = new WaitForSeconds(2f);
 
-        foreach (var enemy in _points.Spawn)
+        foreach (var coin in _points.Spawn)
         {
             yield return waitForSeconds;
-            Instantiate(_coin, enemy.transform.position, Quaternion.identity);
+            Instantiate(_coin, coin.transform.position, Quaternion.identity);
         }
     }
 }

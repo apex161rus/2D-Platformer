@@ -1,19 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
     [SerializeField] private int _number;
-    public int Number => _number;
 
+    [SerializeField] private GameObject _object;
+
+    public int Number => _number;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
-            Debug.Log("1");
-
+            Debug.Log(_number);
+            Destroy(_object);
         }
     }
 }
