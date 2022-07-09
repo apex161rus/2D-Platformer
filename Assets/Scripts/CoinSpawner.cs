@@ -17,12 +17,9 @@ public class CoinSpawner : MonoBehaviour
 
     private IEnumerator CreateEnemies()
     {
-        //var waitForSeconds = new WaitForSeconds(0.30f);
-
         foreach (var coin in _points.Spawn)
         {
             yield return Instantiate(_coin, coin.transform.position, Quaternion.identity);
-
         }
     }
 }
