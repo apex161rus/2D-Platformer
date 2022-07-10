@@ -1,21 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraControlla : MonoBehaviour {
-	[SerializeField]
-	private float xMax;
-	[SerializeField]
-	private float yMax;
-	[SerializeField]
-	private float xMin;
-	[SerializeField]
-	private float yMin;
+	[SerializeField] private float _xMax;
+	[SerializeField] private float _yMax;
+	[SerializeField] private float _xMin;
+	[SerializeField] private float _yMin;
+	[SerializeField] private Transform _target;
 
-	[SerializeField]
-	private Transform target;
-	void Update ()
+	private void Update ()
 	{
-		transform.position = new Vector3 (Mathf.Clamp(target.position.x,xMin,xMax), Mathf.Clamp(target.position.y,yMin,yMax), transform.position.z);
+		transform.position = new Vector3 (Mathf.Clamp(_target.position.x,_xMin,_xMax), Mathf.Clamp(_target.position.y,_yMin,_yMax), transform.position.z);
 	}
 }
