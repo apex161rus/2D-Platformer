@@ -7,16 +7,18 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Transform _graundCheck;
-    [SerializeField] private float _checRadius = 1f;
+    [SerializeField] private float _checRadius = 0.3f;
     [SerializeField] private LayerMask _graund;
 
     private Animator _animator;
     private float _jumpheigt = 5.60f;
     private bool _isAnimator = false;
     private bool _isGround;
+    private string _isMove;
 
     private void Start()
     {
+        _isMove = "isMove";
         _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     } 
@@ -24,13 +26,13 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         CheckingGraund();
-        Weilke();
+        InputMovementVector();
         Jump();
     }
 
-    private void CheckingGraund()
+    private bool CheckingGraund()
     {
-        _isGround = Physics2D.OverlapCircle(_graundCheck.position, _checRadius, _graund);
+        return _isGround = Physics2D.OverlapCircle(_graundCheck.position, _checRadius, _graund);
     }
 
     private void Jump()
@@ -41,28 +43,28 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void Weilke()
+    private void InputMovementVector()
     {
         float _speed = 4;
 
         if (Input.GetKey(KeyCode.D))
         {
             _isAnimator = true;
-            _animator.SetBool("isMove", _isAnimator && _isGround);
+            _animator.SetBool(_isMove, _isAnimator && _isGround);
             transform.eulerAngles = new Vector3(0, 0, 0);
             transform.Translate(_speed * Time.deltaTime * 1, 0, 0);
         }
         else if (Input.GetKey(KeyCode.A))
         {
             _isAnimator = true;
-            _animator.SetBool("isMove", _isAnimator && _isGround);
+            _animator.SetBool(_isMove, _isAnimator && _isGround);
             transform.eulerAngles = new Vector3(0, 180, 0);
             transform.Translate(_speed * Time.deltaTime * 1, 0, 0);
         }
         else
         {
             _isAnimator = false;
-            _animator.SetBool("isMove", _isAnimator);
+            _animator.SetBool(_isMove, _isAnimator);
         }
     }
 }

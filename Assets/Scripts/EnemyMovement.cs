@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (_enemy.IsKill != true)
+        if (_enemy.IsAlive != true)
         {
             Transform target = _poins[_cerentePoint];
 

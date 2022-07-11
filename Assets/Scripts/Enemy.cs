@@ -5,13 +5,15 @@
 public class Enemy : MonoBehaviour
 {
     private Animator _animator;
-    private bool _isKill;
+    private bool _isAlive;
+    private string _isKill;
 
-    public bool IsKill => _isKill;
+    public bool IsAlive => _isAlive;
 
     private void Start()
     {
-        _isKill = false; ;
+        _isKill = "Death";
+        _isAlive = false; ;
         _animator = GetComponent<Animator>();
     }
 
@@ -19,9 +21,9 @@ public class Enemy : MonoBehaviour
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
-            _isKill = true;
+            _isAlive = true;
             Debug.Log("kill");
-            _animator.SetBool("Death", true);
+            _animator.SetBool(_isKill, true);
         }
     }
 }
