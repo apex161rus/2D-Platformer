@@ -7,18 +7,17 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Transform _graundCheck;
-    [SerializeField] private float _checRadius = 0.3f;
     [SerializeField] private LayerMask _graund;
 
     private Animator _animator;
+    private bool _isGround;
+    private float _checRadius = 0.3f;
     private float _jumpheigt = 5.60f;
     private bool _isAnimator = false;
-    private bool _isGround;
-    private string _isMove;
+    private const string isMove = "isMove";
 
     private void Start()
     {
-        _isMove = "isMove";
         _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     } 
@@ -45,26 +44,26 @@ public class Movement : MonoBehaviour
 
     private void InputMovementVector()
     {
-        float _speed = 4;
+        float speed = 4;
 
         if (Input.GetKey(KeyCode.D))
         {
             _isAnimator = true;
-            _animator.SetBool(_isMove, _isAnimator && _isGround);
+            _animator.SetBool(isMove, _isAnimator && _isGround);
             transform.eulerAngles = new Vector3(0, 0, 0);
-            transform.Translate(_speed * Time.deltaTime * 1, 0, 0);
+            transform.Translate(speed * Time.deltaTime * 1, 0, 0);
         }
         else if (Input.GetKey(KeyCode.A))
         {
             _isAnimator = true;
-            _animator.SetBool(_isMove, _isAnimator && _isGround);
+            _animator.SetBool(isMove, _isAnimator && _isGround);
             transform.eulerAngles = new Vector3(0, 180, 0);
-            transform.Translate(_speed * Time.deltaTime * 1, 0, 0);
+            transform.Translate(speed * Time.deltaTime * 1, 0, 0);
         }
         else
         {
             _isAnimator = false;
-            _animator.SetBool(_isMove, _isAnimator);
+            _animator.SetBool(isMove, _isAnimator);
         }
     }
 }

@@ -8,6 +8,8 @@ public class EnemyMovement : MonoBehaviour
 
     private Enemy _enemy;
     private int _cerentePoint;
+    private float _speed = 1.5f;
+    private float _range = 0.2f;
 
     private void Start()
     {
@@ -29,9 +31,9 @@ public class EnemyMovement : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
 
-            transform.position = Vector2.MoveTowards(transform.position, target.position, 1.5f * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, target.position) < 0.2f)
+            if (Vector2.Distance(transform.position, target.position) < _range)
             {
                 _cerentePoint++;
 

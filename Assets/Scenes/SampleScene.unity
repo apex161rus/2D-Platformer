@@ -1873,7 +1873,6 @@ GameObject:
   - component: {fileID: 979145729}
   - component: {fileID: 979145728}
   - component: {fileID: 979145731}
-  - component: {fileID: 979145730}
   m_Layer: 0
   m_Name: coins
   m_TagString: Untagged
@@ -1957,30 +1956,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &979145730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979145727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d7f46bd0803b42baab6647092978267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPositions:
-  - {fileID: 1597502013}
-  - {fileID: 1366846053}
-  - {fileID: 77541852}
-  - {fileID: 1617214730}
-  - {fileID: 1111594874}
-  - {fileID: 126369437}
-  - {fileID: 1456337768}
-  - {fileID: 1714913613}
-  - {fileID: 1428646660}
-  - {fileID: 617362302}
-  - {fileID: 442873949}
 --- !u!114 &979145731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1994,6 +1969,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coin: {fileID: 1706021906281411941, guid: cea9e9d668f2045338eee24779250e04, type: 3}
+  _spawnPositions:
+  - {fileID: 1597502013}
+  - {fileID: 1366846053}
+  - {fileID: 1111594874}
+  - {fileID: 77541852}
+  - {fileID: 1617214730}
+  - {fileID: 126369437}
+  - {fileID: 1456337768}
+  - {fileID: 1714913613}
+  - {fileID: 1428646660}
+  - {fileID: 617362302}
+  - {fileID: 442873949}
 --- !u!1 &1022374747
 GameObject:
   m_ObjectHideFlags: 0

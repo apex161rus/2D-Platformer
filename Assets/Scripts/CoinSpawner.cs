@@ -15,10 +15,10 @@ public class CoinSpawner : MonoBehaviour
     {
         var waitForSeconds = new WaitForSeconds(1f);
 
-        foreach (var coin in _spawnPositions)
+        foreach (var position in _spawnPositions)
         {
             yield return waitForSeconds;
-            Instantiate(_coin, coin.transform.position, Quaternion.identity);
+            Instantiate(_coin, position.transform.position, Quaternion.identity);
         }
     }
 }
